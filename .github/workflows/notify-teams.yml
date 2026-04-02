@@ -15,7 +15,7 @@ jobs:
 
       - name: Notify Teams
         if: always()
-        uses: sagui-oficial/actions/packages/notify-teams@notify-teams/v1.1.0
+        uses: sagui-oficial/actions@notify-teams/v1.2.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
