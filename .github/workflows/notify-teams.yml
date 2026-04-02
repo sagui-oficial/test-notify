@@ -1,0 +1,22 @@
+name: Notify Teams
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Notify Teams
+        if: always()
+        uses: sagui-oficial/actions/packages/notify-teams@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          webhook-uri: ${{ secrets.TEAMS_WEBHOOK_URI }}
+          build-version: "test-1.0.0"
